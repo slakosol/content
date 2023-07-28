@@ -1,0 +1,269 @@
+/* General */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  line-height: 1;
+  font-weight: 400;
+  color: #151515;
+  background-color: #f8f9fa;
+}
+
+.main-container {
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+/* Header */
+.header-section {
+  color: #f8f9fa;
+  background-color: #151515;
+  padding: 12rem 0 0 0;
+  box-shadow: 0 0 3.2rem rgb(0, 0, 0, 0.07);
+}
+
+.header {
+  max-width: 90rem;
+}
+
+.heading-primary {
+  font-size: 5.8rem;
+  text-align: left;
+  margin-bottom: 1.8rem;
+  letter-spacing: -2.5px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.heading-secondary {
+  color: #949495;
+  font-size: 2.8rem;
+  font-weight: 500;
+  text-align: left;
+  margin-bottom: 2rem;
+  letter-spacing: -1.5px;
+  line-height: 1.2;
+}
+
+/* Author Line */
+.author {
+  margin-bottom: 3rem;
+  align-items: center;
+}
+
+.name {
+  font-size: 2.3rem;
+  font-weight: 500;
+  letter-spacing: -1px;
+  margin-right: 1.5rem;
+}
+
+.date {
+  font-size: 1.9rem;
+  font-weight: 400;
+  letter-spacing: -1px;
+  color: #949495;
+}
+
+.card-tag {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+.analytics-tag {
+  color: #23b5d3;
+  background-color: rgba(35, 182, 211, 0.3);
+  margin-right: 0.5rem;
+}
+
+.engineering-tag {
+  color: #ffbf00;
+  background-color: rgb(255, 191, 0, 0.3);
+  margin-right: 0.5rem;
+}
+
+.python-tag {
+  color: #31e981;
+  background-color: rgb(49, 233, 129, 0.3);
+  margin-right: 0.5rem;
+}
+
+/* Article */
+.article-content {
+  margin-top: 5rem;
+  max-width: 90rem;
+  color: #151515;
+  font-size: 2.3rem;
+  letter-spacing: 0;
+}
+
+.article-content:last-child {
+  margin-bottom: 8rem;
+}
+
+.main-text {
+  line-height: 1.5;
+  margin-bottom: 3rem;
+}
+
+/* Footer */
+.footer-box {
+  padding: 6rem 0;
+  border-top: 1px solid #e8e8e8;
+  box-shadow: 0 0 1.2rem rgb(0, 0, 0, 0.02);
+}
+
+.footer {
+  max-width: 90rem;
+}
+
+.footer-header {
+  font-size: 3.2rem;
+  font-weight: 700;
+  margin-bottom: 2.4rem;
+  letter-spacing: -1px;
+  color: #151515;
+}
+
+.suggested-reading-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-bottom: 6.2rem;
+}
+
+.article-link,
+.article-link:link,
+.article-link:visited {
+  text-decoration: none;
+  font-size: 2.8rem;
+  letter-spacing: -1px;
+  color: #686868;
+  transition: all 0.3s;
+}
+
+.article-link:hover,
+.article-link:active {
+  color: #3b3b3c;
+  text-decoration: solid underline 2px;
+  transition: all 0.3s;
+}
+
+.social-links {
+  list-style: none;
+  display: flex;
+  gap: 2.4rem;
+}
+
+.social-icon {
+  height: 3rem;
+  width: 3rem;
+}
+
+.icon-link,
+.icon-link:hover,
+.icon-link:active {
+  color: #686868;
+  transition: all 0.3s;
+}
+.icon-link:hover,
+.icon-link:active {
+  color: #3b3b3c;
+  transition: all 0.3s;
+}
+
+/* Expandable Figures */
+.image-container {
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+
+.image-container .image {
+  cursor: zoom-in;
+}
+
+.image-container .image img {
+  width: 100%;
+  justify-self: center;
+}
+
+.page-container .popup-img {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgb(0, 0, 0, 0.8);
+  z-index: 100;
+  display: none;
+}
+
+.page-container .popup-img .contract-icon {
+  position: absolute;
+  top: 3rem;
+  right: 3rem;
+  height: 5rem;
+  width: 5rem;
+  color: #cacaca;
+  cursor: pointer;
+  z-index: 100;
+  transition: all 0.3s;
+}
+
+.page-container .popup-img .contract-icon:hover,
+.page-container .popup-img .contract-icon:active {
+  color: #f4f4f4;
+  transition: all 0.3s;
+}
+
+.page-container .popup-img img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  width: 75%;
+}
+
+.page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+.home-button {
+  position: absolute;
+  top: 5rem;
+  left: 5rem;
+}
+
+.home-button-link,
+.home-button-link:link,
+.home-button-link:visited {
+  transition: all 0.3s;
+  color: #f8f9fa;
+}
+
+.home-button-link:hover,
+.home-button-link:active {
+  transition: all 0.3s;
+  color: #949495;
+}
+
+.home-button-icon {
+  height: 3rem;
+  width: 3rem;
+}

@@ -1,0 +1,110 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  line-height: 1;
+  font-weight: 400;
+  color: #151515;
+  background-color: #f8f9fa;
+}
+
+.main-container {
+  max-width: 120rem;
+  margin: 0 auto;
+
+  display: grid;
+  row-gap: 9.6rem;
+  grid-template-columns: 1fr 3fr;
+  font-size: 2.3rem;
+  align-content: start;
+  border-bottom: 2px solid #151515;
+}
+
+.main-container.main-container-last {
+  margin-bottom: 10rem;
+  border-bottom: none;
+}
+
+.header-container {
+  max-width: 120rem;
+  margin: 0 auto;
+  margin-top: 12rem;
+  border-bottom: 2px solid #151515;
+}
+
+.header-container h1 {
+  font-size: 4rem;
+  margin-bottom: 5rem;
+  letter-spacing: -1.5px;
+}
+
+.left-panel-with-border {
+  border-bottom: 2px solid #151515;
+}
+
+.left-panel {
+  font-weight: 700;
+  margin-bottom: 5rem;
+  letter-spacing: -1px;
+  margin-top: 5rem;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1.5fr 3fr;
+  border-bottom: 2px solid #151515;
+  padding-bottom: 5rem;
+  margin-top: 5rem;
+}
+
+.row.row-last {
+  border-bottom: none;
+  margin-bottom: 5rem;
+}
+
+.subheading {
+  letter-spacing: -1px;
+  font-weight: 700;
+}
+
+.subheading span {
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.content {
+  letter-spacing: -1px;
+}
+
+/* Home Button */
+.home-button {
+  position: absolute;
+  top: 5rem;
+  left: 5rem;
+}
+
+.home-button-link,
+.home-button-link:link,
+.home-button-link:visited {
+  transition: all 0.3s;
+  color: #151515;
+}
+
+.home-button-link:hover,
+.home-button-link:active {
+  transition: all 0.3s;
+  color: #949495;
+}
+
+.home-button-icon {
+  height: 3rem;
+  width: 3rem;
+}

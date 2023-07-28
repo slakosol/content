@@ -1,0 +1,59 @@
+/* 
+
+--- 01: Typography
+- Font Sizes (px):
+68 / 58 / 48 / 40 / 32 / 28 / 23 / 19
+(Minor Third, Base 16 px, Weight 400)
+
+- Font weights:
+Default: 400
+Medium: 500
+Bold: 700
+
+--- 02: Colors
+Eerie Black: #151515;
+Text White: #F8F9FA;
+Blue: #23B5D3;
+Green: #31E981;
+Yellow: #FFBF00;
+
+*/
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  line-height: 1;
+  font-weight: 400;
+  color: #f8f9fa;
+  background-color: #151515;
+}
+
+.main-container {
+  max-width: 160rem;
+  margin: 0 auto;
+  padding: 0 3.2rem;
+  display: grid;
+  row-gap: 9.6rem;
+  grid-template-columns: 1.25fr 1.25fr;
+  margin-top: 12rem;
+}
+
+.left-panel {
+  padding-right: 5rem;
+}
+
+.right-panel {
+  padding-left: 5rem;
+  display: grid;
+  row-gap: 1rem;
+  align-content: start;
+}

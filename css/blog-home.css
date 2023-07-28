@@ -1,0 +1,131 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  line-height: 1;
+  font-weight: 400;
+}
+.main-container {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1.25fr 1.25fr;
+}
+
+.right-panel {
+  background-color: #f8f9fa;
+  color: #151515;
+}
+
+.left-panel {
+  background-color: #151515;
+  color: #f8f9fa;
+  display: grid;
+}
+
+/* Left Panel */
+.left-panel-content {
+  justify-self: end;
+  max-width: 150rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.title {
+  margin-top: 12rem;
+  justify-self: end;
+  font-size: 4.8rem;
+}
+
+.title h1 {
+  writing-mode: vertical-rl;
+  letter-spacing: -2.5px;
+}
+
+.blog-desc {
+  margin-top: 12rem;
+  justify-self: start;
+  margin-right: 5rem;
+  font-size: 3.8rem;
+}
+
+/* Right Panel */
+.right-panel-content {
+  justify-self: start;
+  max-width: 200rem;
+  margin-top: 12rem;
+  margin-left: 10rem;
+}
+
+.section-header {
+  font-size: 3.2rem;
+  font-weight: 700;
+  margin-bottom: 2.4rem;
+  letter-spacing: -1px;
+  color: #151515;
+}
+
+.article-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 6.2rem;
+}
+
+.article-link,
+.article-link:link,
+.article-link:visited {
+  text-decoration: none;
+  font-size: 2.8rem;
+  letter-spacing: -1px;
+  color: #686868;
+  transition: all 0.3s;
+}
+
+.article-link:hover,
+.article-link:active {
+  color: #3b3b3c;
+  text-decoration: solid underline 2px;
+  transition: all 0.3s;
+}
+
+.article-list li p {
+  font-size: 1.9rem;
+  letter-spacing: -0.5px;
+  margin-left: 4rem;
+  margin-top: 1rem;
+  color: #686868;
+}
+
+/* Home Button */
+.home-button {
+  position: absolute;
+  top: 5rem;
+  left: 5rem;
+}
+
+.home-button-link,
+.home-button-link:link,
+.home-button-link:visited {
+  transition: all 0.3s;
+  color: #f8f9fa;
+}
+
+.home-button-link:hover,
+.home-button-link:active {
+  transition: all 0.3s;
+  color: #949495;
+}
+
+.home-button-icon {
+  height: 3rem;
+  width: 3rem;
+}
