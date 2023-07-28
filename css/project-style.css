@@ -119,6 +119,12 @@ body {
   margin-bottom: 3rem;
 }
 
+.intext-heading {
+  margin-top: 2rem;
+  font-size: 2.8rem;
+  margin-bottom: 3rem;
+}
+
 /* Footer */
 .footer-box {
   padding: 6rem 0;
@@ -160,6 +166,20 @@ body {
 .article-link:active {
   color: #3b3b3c;
   text-decoration: solid underline 2px;
+  transition: all 0.3s;
+}
+
+.main-text-link,
+.main-text-link:link,
+.main-text-link:visited {
+  text-decoration: none;
+  color: #686868;
+  transition: all 0.3s;
+}
+
+.main-text-link:hover,
+.main-text-link:active {
+  color: #3b3b3c;
   transition: all 0.3s;
 }
 

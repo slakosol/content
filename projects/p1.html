@@ -12,7 +12,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
-    <title>Long test and bit longer still</title>
+    <title>sofascore.com Stats Bot</title>
   </head>
   <body>
     <div class="page-container">
@@ -24,7 +24,7 @@
       <section class="header-section">
         <div class="header main-container">
           <h1 class="heading-primary">
-            Long test and bit longer still, but testing even longer
+            sofascore.com Stats Bot
           </h1>
           <h2 class="heading-secondary">
             Some quick description of what the article is about, same can be
@@ -32,10 +32,10 @@
           </h2>
           <div class="author">
             <span class="name">Slava Kosolapov</span
-            ><span class="date">Mar 31, '23</span>
+            ><span class="date">May 12, '23</span>
             <p></p>
-            <div class="card-tag analytics-tag">
-              <span>Data Analytics</span>
+            <div class="card-tag engineering-tag">
+              <span>Data Scraping</span>
             </div>
             <div class="card-tag python-tag">
               <span>Python</span>
@@ -45,70 +45,87 @@
       </section>
       <section class="article-section">
         <div class="article-content main-container">
+          <p class="main-text"><em>
+            I was on the fence about including code snippets in the text of this article. There is no brilliant, punchy logic in the Python code I wrote, but you can check out the whole thing <a class="main-text-link
+            main-text-link" href="#"
+            >here</a
+          > on GitHub.
+          </em></p>
           <p class="main-text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+            The Beautiful Game cannot be wholly captured by mere statistics. Each routine pass made by Thiago Alcantara is a stroke of a master’s brush. Yet, the flair of some professional footballers outshines their effectiveness on the pitch. All in all, football statistics help us fans keep tabs on the bottom line of player and club performance.
           </p>
           <p class="main-text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+            The internet is a cornucopia of sport statistics – some paid, some free, some credible, some of dubious factuality. Out of the free sources, none can rival sofascore.com in breadth and detail, offering granular passing, shooting, defending, and other miscellaneous statistics for each player in each of the top European leagues.
           </p>
-          <pre><code class="language-python">#Python
-someStr = 'abc'
-print(someStr)</code></pre>
+
           <p class="main-text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+            My aim for this project was to scrape sofascore.com for desired data; my hope was that all of the data would be embedded in HTML and that I’d be able to make do with some boilerplate Beautiful Soup code.
+          </p>
+
+          <p class="main-text">
+            However, the data on the website, though stored in HTML table elements, is updated with back-end API calls to sofascore’s own database, so it is not possible to access the statistics for every player in the league by saving the HTML plain text. It was necessary to make a program that would interact with the website. The Selenium library proved the perfect tool for making such a browser bot.
+          </p>
+<h2 class="intext-heading">[Bare bones scanning of pages]</h2>
+          <p class="main-text">
+            The two workhorse methods in the program are establish_schema and scan_remaining_pages.
+          </p>
+
+          <p class="main-text">
+            The establish_schema method does not leverage any Selenium-enabled interactions with the site, instead it simply scans the HTML present when the page first loads, finding the table element with the data and saving column headers as dictionary keys and the respective row values in a list as dictionary values.
+          </p>
+          <p class="main-text">
+            The scan_remaining_pages method gets the dictionary built by the establish_schema passed to it and appends to the lists under each dictionary key the row values of subsequent pages by clicking on the “next page” button. The end result is a dictionary with column values – e.g. player name, goals, shots on goal – as dictionary keys and a list of row values for all players under a specific filter as the dictionary value. This dictionary is then saved as a pandas DataFrame.
+          </p>
+          <p class="main-text">
+            The logic of the program is elementary, but writing dynamic Selenium selectors and working out all of the quirks of the website with WebDriverWait presented some challenges. Additionally, I spent a considerable amount of time adjusting for variable number of scannable pages, and variable number of rows and selected columns in the table.
+          </p>
+
+          <h2 class="intext-heading">[Adding User Features]</h2>
+          <p class="main-text">
+            Once the basic functionality was working well, I realized there was an opportunity to significantly expand the usability of the bot and decided to build a method to interact with the database filters based on user inputs. The program script is intended to be run from the terminal, where it prompts the user to make selections based on desired statistics. The user can select from any of the top five European leagues, filter further based on player age and position, and then make the selection of granular filters.
+          </p>
+
+          <h2 class="intext-heading">[Automation]</h2>
+          <p class="main-text">
+            Ultimately, I built this project for myself, out of desire to have readily available, fresh data to analyze. So, as soon as the bot was functional, I began pulling [swarms] of historical league data from the website.
+          </p>
+          <p class="main-text">
+            With the considerable number of necessary interactions and all the WebDriverWait methods, loading and scanning about 20 pages of data, roughly 500 player entries, takes at least a few minutes – and that is just for a single filter. To avoid defeating the purpose of automation by sitting in front of the screen, manually inputting a new set of filters every few minutes, it was fairly easy to write a nested loop, iterating over lists of league years, league names, and various filters. Once set up, I ran the program and returned an hour or so later to a repository with 15 csv files full of tantalizing football stats.
+          </p>
+
+          <h2 class="intext-heading">[Wrangling with the data in SQL]</h2>
+          <p class="main-text">
+            With multiple files for the same league year with different statistic columns, I consolidated the data in PostgreSQL and exported a csv file for each major European league for the 21/22 season selecting the columns of interest to do some high-level analysis.
+          </p>
+
+          <pre><code class="language-sql">-- SQL Query:
+          
+          SELECT a.team, SUM(goals) AS total_goals,
+              SUM(acc_passes) AS total_acc_passes,
+              SUM(total_passes) AS total_passes,
+              ROUND((SUM(acc_passes) / SUM(total_passes)), 2) AS acc_pass_perc
+          FROM pl_a AS a
+          LEFT JOIN pl_p AS p
+          ON a.team = p.team AND a.player_name = p.player_name
+          GROUP BY a.team
+          ORDER BY acc_pass_perc DESC;
+        </code></pre>
+        <p class="main-text"></p>
+        <h2 class="intext-heading">[Analytics and Visualization]</h2>
+
+          <p class="main-text">
+            It is not the point of this article to reveal the patterns behind my proprietary predictive data analytics which doubtless would produce a million dollar fortune – assuming one starts with at least a billion. Nonetheless, I thought I’d offer a stylized demonstration of the potential end use of the bot.
+          </p>
+          <p class="main-text">
+            Points earned by a club in a given season is one of the most widely-tracked, well-known statistics. Seeing how total goals and passes are distributed sheds light on whether possession and attacking prowess follow a similar pattern. Below example is only a simple visualization, but looking at metrics like points per pass, and points per goal in combination with the deviation of club’s final table position in the points table and in the presented passing and goals tables, offer insight into the dynamics between the clubs’ play styles and league performance.
           </p>
           <div class="image-container">
             <div class="image">
-              <img src="../img/img-1.png" alt="" />
+              <img src="../img/fig-1.png" alt="" />
             </div>
           </div>
 
-          <p class="main-text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-          </p>
-          <p class="main-text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-          </p>
-
-          <p class="main-text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-          </p>
+        
         </div>
       </section>
       <footer class="footer-box">
