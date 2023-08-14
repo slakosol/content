@@ -121,6 +121,12 @@ body {
   margin-bottom: 3rem;
 }
 
+.intext-heading {
+  margin-top: 2rem;
+  font-size: 2.8rem;
+  margin-bottom: 3rem;
+}
+
 /* Footer */
 .footer-box {
   padding: 6rem 0;

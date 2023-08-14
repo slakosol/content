@@ -27,8 +27,7 @@
             sofascore.com Stats Bot
           </h1>
           <h2 class="heading-secondary">
-            Some quick description of what the article is about, same can be
-            said of testing multi-line subheading m8
+            I developed a Python Selenium bot to scrape football club and player stats for personal analysis
           </h2>
           <div class="author">
             <span class="name">Slava Kosolapov</span
@@ -47,7 +46,7 @@
         <div class="article-content main-container">
           <p class="main-text"><em>
             I was on the fence about including code snippets in the text of this article. There is no brilliant, punchy logic in the Python code I wrote, but you can check out the whole thing <a class="main-text-link
-            main-text-link" href="#"
+            main-text-link" href="https://github.com/slakosol/stats_bot" target="_blank"
             >here</a
           > on GitHub.
           </em></p>
@@ -65,7 +64,7 @@
           <p class="main-text">
             However, the data on the website, though stored in HTML table elements, is updated with back-end API calls to sofascore’s own database, so it is not possible to access the statistics for every player in the league by saving the HTML plain text. It was necessary to make a program that would interact with the website. The Selenium library proved the perfect tool for making such a browser bot.
           </p>
-<h2 class="intext-heading">[Bare bones scanning of pages]</h2>
+<h2 class="intext-heading">Main Methods</h2>
           <p class="main-text">
             The two workhorse methods in the program are establish_schema and scan_remaining_pages.
           </p>
@@ -80,20 +79,20 @@
             The logic of the program is elementary, but writing dynamic Selenium selectors and working out all of the quirks of the website with WebDriverWait presented some challenges. Additionally, I spent a considerable amount of time adjusting for variable number of scannable pages, and variable number of rows and selected columns in the table.
           </p>
 
-          <h2 class="intext-heading">[Adding User Features]</h2>
+          <h2 class="intext-heading">Bot Customization & UI</h2>
           <p class="main-text">
             Once the basic functionality was working well, I realized there was an opportunity to significantly expand the usability of the bot and decided to build a method to interact with the database filters based on user inputs. The program script is intended to be run from the terminal, where it prompts the user to make selections based on desired statistics. The user can select from any of the top five European leagues, filter further based on player age and position, and then make the selection of granular filters.
           </p>
 
-          <h2 class="intext-heading">[Automation]</h2>
+          <h2 class="intext-heading">Automation</h2>
           <p class="main-text">
-            Ultimately, I built this project for myself, out of desire to have readily available, fresh data to analyze. So, as soon as the bot was functional, I began pulling [swarms] of historical league data from the website.
+            Ultimately, I built this project for myself, out of desire to have readily available, fresh data to analyze. So, as soon as the bot was functional, I began pulling tons of historical league data from the website.
           </p>
           <p class="main-text">
             With the considerable number of necessary interactions and all the WebDriverWait methods, loading and scanning about 20 pages of data, roughly 500 player entries, takes at least a few minutes – and that is just for a single filter. To avoid defeating the purpose of automation by sitting in front of the screen, manually inputting a new set of filters every few minutes, it was fairly easy to write a nested loop, iterating over lists of league years, league names, and various filters. Once set up, I ran the program and returned an hour or so later to a repository with 15 csv files full of tantalizing football stats.
           </p>
 
-          <h2 class="intext-heading">[Wrangling with the data in SQL]</h2>
+          <h2 class="intext-heading">Wrangling with the Data in SQL</h2>
           <p class="main-text">
             With multiple files for the same league year with different statistic columns, I consolidated the data in PostgreSQL and exported a csv file for each major European league for the 21/22 season selecting the columns of interest to do some high-level analysis.
           </p>
@@ -111,7 +110,7 @@
           ORDER BY acc_pass_perc DESC;
         </code></pre>
         <p class="main-text"></p>
-        <h2 class="intext-heading">[Analytics and Visualization]</h2>
+        <h2 class="intext-heading">Analytics and Visualization</h2>
 
           <p class="main-text">
             It is not the point of this article to reveal the patterns behind my proprietary predictive data analytics which doubtless would produce a million dollar fortune – assuming one starts with at least a billion. Nonetheless, I thought I’d offer a stylized demonstration of the potential end use of the bot.
@@ -133,20 +132,11 @@
           <h3 class="footer-header">More Stuff to Check Out</h3>
           <ul class="suggested-reading-list">
             <li>
-              <a class="article-link" href="../projects/p1.html"
-                >Longer test title and bit longer</a
+              <a class="article-link" href="#"
+                >Coming Soon..</a
               >
             </li>
-            <li>
-              <a class="article-link" href="../projects/p2.html"
-                >Need to give this braindead looking shit some variety</a
-              >
-            </li>
-            <li>
-              <a class="article-link" href="../projects/p3.html"
-                >Longer test title and bit longer Pt. 2</a
-              >
-            </li>
+            
           </ul>
           <ul class="social-links">
             <li>
